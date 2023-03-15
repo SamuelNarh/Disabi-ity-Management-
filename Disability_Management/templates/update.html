@@ -1,0 +1,39 @@
+{% extends 'mainindex.html'%}
+{% block content %}
+<form  method="post" enctype="multipart/form-data" autocomplete="off" class="container"> {% csrf_token %} 
+  <h3> UPDATE FORM</h3>
+   <input type="hidden" name="id" value="">
+   <label >Name: </label>  
+   <input class="input"  type="text" name="name" required  value="{{container.name}}"> <br><br>
+   <label >Date of Birth: </label>
+   <input class="input"  type="text" name="date_of_birth" value="{{container.birth_day}}">
+   <input class="input" type="hidden" name="image" value="{{container.picture}}"><br>
+   <input type="hidden" name="gender"  value="{{container.gender}}">
+   <input class="input" type="hidden" name="age" placeholder="Enter Age" min="1" pattern="[0-9]+" maxlength="3" title="Please enter numbers only" value="{{container.age}}"><br>
+   <label >Phone Number:</label>
+   <input class="input"  type="text" name="telephone" required  value="{{container.telephone}}"><br> <br>
+   <label >NHIS/GHANA CARD:</label>
+   <input class="input"  type="text" name="nhis" required  value="{{container.nhis}}"><br> <br>     
+   <label >Residential Address:</label>
+   <input class="input"  type="text" name="rescidential" required  value="{{container.rescidential}}">
+   <input class="input" type="hidden" name="type_of_diasbilities" placeholder="Enter Type of Disability" required maxlength="100" value="{{container.type_of_diasbilities}}">
+   <input class="input" type="hidden" name="educational_level" placeholder="Enter Educational Level" value="{{container.educational_level}}">
+   <input type="hidden" name="school_vocation" value="{{container.school_vocation}}"> 
+   <input class="input" type="hidden" name="school"  maxlength="100" value="{{container.school}}" > 
+   <input class="input" type="hidden" name="guardian_name" value="{{container.guardian_name}}"> 
+   <input class="input" type="hidden" name="occupation_g" value="{{container.occupation_g}}" >
+   <input class="input" type="hidden" name="type_of_support" value="{{container.type_of_support}}"> 
+   <input class="input" type="hidden" name="disability" value="{{container.disability}}" >
+
+   <input type="submit" name="update" value="Update" id="subb" >
+   <a href="{% url 'info' %}" id="backbottom"> Back</a>
+</form>
+<div>
+<p id="foot"><small>&copy Tolo</small></p>
+</div>
+{% endblock content %}                                                                                                                                                          
+</body>
+</html>
+
+
+  

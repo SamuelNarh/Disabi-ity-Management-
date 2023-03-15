@@ -1,0 +1,70 @@
+{% extends 'mainindex.html'%}
+
+{% block content %}
+    {% for msg in messages %}
+       {{msg}}
+    {% endfor %}
+        <div>
+          <form method="GET" autocomplete="off"  >
+            <input type="text" name="search" placeholder="search name here" id="searchinput" required  autocomplete="off" >
+            <button type="submit" class="searchbutton"> Search</button>
+          </form>
+        </div>
+            <article class="">
+              <table class="table" >
+              <tr>
+                <th>ID</th>
+                <th> Date of application</th>
+                <th>Name of Applicant</th>
+                <th>Date of Birth</th>
+                <th>Picture</th>
+                <th >Gender</th>
+                <th>Date of Birth</th>
+                <th >Age</th>
+                <th >Telephone Number</th>
+                <th >NHIS Number</th>
+                <th>Type of Disabilities</th>
+                <th>Residential Address</th>
+                <th>Level of Education</th>
+                <th>School / Vocation</th>
+                <th>Name of School</th>
+                <th>Name of Guardians </th>
+                <th>Occupation of Guardians</th>
+                <th>Type of support</th>
+                <th>Disability Code</th>
+              </tr>
+            {% for x in container %}
+              <tr>
+                <td>{{x.id}}</td>
+                <td>{{x.date}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.birth_day}}</td>
+                <td><img style="max-width:100px" src="{{x.picture}}" alt="image_here"></td>       
+                <td>{{x.gender}}</td>
+                <td>{{x.date_of_birth}}</td>
+                <td>{{x.age}}</td>
+                <td>{{x.telephone}}</td>
+                <td>{{x.nhis}}</td>
+                <td>{{x.type_of_diasbilities}}</td>
+                <td>{{x.rescidential}}</td>
+                <td>{{x.educational_level}}</td>
+                <td>{{x.school_vocation}}</td>
+                <td>{{x.school}}</td>
+                <td>{{x.guardian_name}}</td>
+                <td>{{x.occupation_g}}</td>
+                <td>{{x.type_of_support}}</td>
+                <td>LADMA/DIS/{{x.disability}}</td>     
+                <td> <a id="deletebotton" name='update' href="{%url 'update' x.id%}">UPDATE</a></td>
+                <td> <a id="deletebotton" name='delete' href="{%url 'delete' x.id%}">DELETE</a></td>
+                {% endfor %}
+              </tr>
+            <article class="">
+          </table>
+            </form>
+            </article class="">
+            <div>
+              <a href=""><button class="print-btn" >Print</button></a>
+            </div>
+            {% endblock content %}
+ </body> 
+</html>

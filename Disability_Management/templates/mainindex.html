@@ -1,0 +1,59 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+    <title>LA Dade-Kotopon Municipal Assembly</title>
+  </head>
+  <body>
+     <div class='header'>
+     <img src="{% static 'images/logo.PNG' %}" alt="ladma logo Here"  class="logo">
+     <a class="home_link"href="{% url 'mainpage' %}"><h1>LA DADE-KOTOPON MUNICIPAL ASSEMBLY(LaDMA)</h1></a>
+      <img src="{% static 'images/coat_of_arms.png' %}" alt="coat of arms"  class="coat_of_arms">
+     </div>
+      {% block content %}
+        <article>
+          <div class="container">
+            <form  method="POST" enctype="multipart/form-data" autocomplete="off" >  {% csrf_token %}
+                <h3>DISABILITY FORM FILL</h3>
+                <input class="input" type="text" name="name" placeholder="Enter name of Applicant" required maxlength="100"><br>
+                <label >Picture </label>
+                <input class="input" type="file" id="image" name="image" accept="image/*"><br>
+                <label for="">Gender :</label>
+                <label for="male" class="radio-inline"> <input type="radio" name="gender" id="male" value="Male" required>Male</label>
+                <label for="female" class="radio-inline"> <input type="radio" name="gender" id="female" value="Female">Female</label><br> 
+                <label>Enter Date of Birth</label>
+                <input class="input"  type="date" name="date_of_birth" placeholder="Enter Date of Birth" required><br>
+                <input class="input" type="text" name="age" placeholder="Enter Age" min="1" pattern="[0-9]+" maxlength="3" title="Please enter numbers only" required><br>
+                <input class="input" type="text" name="telephone" placeholder="Enter Telephone Number"  maxlength="21" title="please enter numbers only" required> <br> 
+                <input class="input" type="text" name="nhis" placeholder="Enter NHIS / Ghana card"  maxlength="20"  required><br>
+                <input class="input" type="text" name="type_of_diasbilities" placeholder="Enter Type of Disability" required maxlength="100"><br> 
+                <input class="input" type="text" name="rescidential" placeholder="Enter Residential Address" required maxlength="150"><br> 
+                <input class="input" type="text" name="educational_level" placeholder="Enter Educational Level"  maxlength="15" required><br>
+                <label for="">In School or learning a Vocation ?</label>
+                <label for="school" class="radio-inline"> <input type="radio" name="school_vocation" id="School" value="School" required>School</label>
+                <label for="Vocation" class="radio-inline"> <input type="radio" name="school_vocation" id="Vocation" value="Vocation">Vocation</label>
+                <label for="N/A" class="radio-inline"> <input type="radio" name="school_vocation" id="N/A" value="N/A" >N/A</label><br>
+                <input class="input" type="text" name="school" placeholder="Enter School name / Vocation name "  maxlength="100" required><br> 
+              <input class="input" type="text" name="guardian_name" placeholder="Enter Name of Guardians" required maxlength="100" ><br> 
+              <input class="input" type="text" name="occupation_g" placeholder="Enter Occupation of Guardians" maxlength="100" required><br>
+              <input class="input" type="text" name="type_of_support" placeholder="Enter Type of support" required maxlength="100" ><br> 
+              <input class="input" type="text" name="disability" placeholder="Enter Diasabilities code"  maxlength="5" required><br>
+              <input type="submit" name="submit" value="submit" id="sub" >
+                      <p id="foot"><small>&copy Tolo</small></p>
+            </form>
+          </div>
+        </article>
+        <div>
+          <a href="{% url 'info' %}" id="clickbotton">Get all Informations Here</a>
+        </div>>
+        {% endblock content %}                                       
+<script>
+  if (window.history.replaceState){
+  window.history.replaceState(null,null,window.location.href);
+   }
+</script>
+</body>
+</html>
